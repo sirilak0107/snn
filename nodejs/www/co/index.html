@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chiang Mai CO Map</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <div id="map"></div>
+
+    <!-- HUD: brand + switch + panel -->
+    <div class="hud">
+      <div class="row">
+        <!-- Brand -->
+        <div class="brand card" title="Project: Chiang Mai CO Map">
+          <i class="fa-solid fa-layer-group"></i>
+          Chiang Mai CO Map
+          <label for="dd" style="margin-left:8px;">choose:</label>
+          <input type="date" id="dd" min="2023-11-01" max="2024-04-29" value="2023-11-01">
+        </div>
+
+        <!-- Switch -->
+        <div id="switch" class="switch card" data-active="A" role="tablist" aria-label="map switch">
+          <div class="pill" aria-hidden="true"></div>
+          <button id="btnA" class="label" aria-selected="true" role="tab">
+            <i class="fa-solid fa-sun"></i> Light Mode
+          </button>
+          <button id="btnB" class="label" aria-selected="false" role="tab">
+            <i class="fa-solid fa-moon"></i> Dark Mode
+          </button>
+        </div>
+
+        <!-- Home button -->
+        <div class="card" style="padding:6px;">
+          <button id="btnHome" class="btn-home">
+            <i class="fa-solid fa-house"></i><span>Home</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ✅ Panel moved inside .hud -->
+      <div class="panel card" id="panel">
+        <h3 id="panelTitle">CO Map · Hexagon</h3>
+        <p id="panelDesc">การแสดงผลปริมาณ CO จากข้อมูลจริงของ GEE</p>
+        <div id="legend" class="legend"></div>
+        <p class="kbd" style="margin-top:10px">
+          <i class="fa-regular fa-keyboard"></i> <span>1</span> · <span>2</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast card" id="toast" style="display:none"></div>
+
+  <!-- Footer tips -->
+  <div class="footer">
+    <div class="card">ลาก/ซูม แผนที่</div>
+  </div>
+
+  <!-- Map JS -->
+  <script src="./app.js"></script>
+</body>
+
+</html>

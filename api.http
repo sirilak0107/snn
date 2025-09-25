@@ -1,0 +1,24 @@
+GET http://localhost:3000/api/co_urban/2023-11-01
+
+###
+GET http://localhost:3000/api/co_suburban/2023-11-01
+
+###
+GET http://localhost:3000/api/co_rural/2023-11-01
+
+###
+GET http://localhost:3000/api/no2_urban/2023-11-01
+
+###
+GET http://localhost:3000/api/no2_suburban/2023-11-01
+
+###
+GET http://localhost:3000/api/no2_rural/2023-11-01
+
+###
+GET "http://localhost:3000/api/co_7day_forecast_urban/2024-04-30"
+###
+GET http://localhost:3000/api/co_7day_forecast_suburban
+
+###
+GET http://localhost:3000/api/co_7day_forecast_rural
