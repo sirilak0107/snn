@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Map Chiang Mai NO₂ / CO </title>
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script> -->
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+  <!-- === Landing Overlay (ADD) === -->
+  <div id="landing" role="dialog" aria-labelledby="landingTitle" aria-modal="true">
+    <div class="l-wrap">
+      <div class="l-card l-hero">
+        <div>
+          <div id="landingTitle" class="l-title">Chiang Mai Air Quality Maps (NO₂ / CO)</div>
+          <div class="l-sub">แผนที่เปรียบเทียบระหว่างข้อมูลจริงผ่านhexagon grid จาก GEE และ ผลการคาดการณ์ปริมาณ NO₂ และ
+            COเมืองเชียงใหม่ ด้วย LSTM</div>
+          <div class="l-actions">
+            <a href="./co/index.html" id="comap" class="btn btn-primary"><i class="fa-solid fa-map"></i>&nbsp; CO Map
+            </a>
+            <a href="./no2/index.html" id="nomap" class="btn btn-primary"><i class="fa-solid fa-map"></i>&nbsp; NO₂ Map
+            </a>
+
+            <a href="./co_prediction/index.html" id="comap_pred" class="btn btn-primary"><i
+                class="fa-solid fa-map"></i>&nbsp; CO Prediction Map
+            </a>
+            <a href="./no2_prediction/index.html" id="nomap_pred" class="btn btn-primary"><i
+                class="fa-solid fa-map"></i>&nbsp;
+              NO₂ Prediction Map
+            </a>
+            <a href="#about" class="btn btn-ghost" id="aboutBtn"><i class="fa-regular fa-id-card"></i>
+              เกี่ยวกับผู้พัฒนา</a>
+          </div>
+        </div>
+        <div class="l-card" style="background:rgba(0,0,0,.18);">
+          <div class="dev">
+            <div class="avatar">SN</div>
+            <div class="bio">
+              พัฒนาโดย <b>Sirilak Niyomthai</b>
+              <small>นักศึกษาภาควิชาภูมิศาสตร์ · Chiang Mai University</small>
+              <small>Email: sirilak_niyomthai@cmu.ac.th </small>
+            </div>
+          </div>
+          <hr style="border-color:rgba(255,255,255,.1); margin:12px 0;">
+          <ul style="margin:0; padding-left:16px; color:var(--muted); font:600 12px/1.6 ui-sans-serif;">
+            <li>การแสดงผลปริมาณ NO₂ และ CO จากข้อมูลจริงของ GEE</li>
+            <li>การแสดงผลปริมาณ NO₂ และ CO จากการคาดการณ์โดย LSTM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="l-footer">© 2025 Chiang Mai NO₂ and CO Maps • เพื่อการศึกษา/วิจัย</div>
+    </div>
+  </div>
+
+  <!-- === About Modal (ADD) === -->
+  <div id="aboutModal" aria-hidden="true">
+    <div class="m-card">
+      <div class="m-close"><button id="aboutClose" aria-label="ปิด"><i class="fa-solid fa-xmark"></i></button></div>
+      <div class="m-grid">
+        <img class="m-photo" src="img/profile.jpg" alt="Sirilak Niyomthai">
+        <div>
+          <div class="m-title">Sirilak Niyomthai</div>
+          <div class="m-meta">รหัสนักศึกษา 650410088 • อายุ 22 ปี • ศึกษาที่ภาควิชาภูมิศาสตร์ คณะสังคมศาสตร์ •
+            มหาวิทยาลัยเชียงใหม่</div>
+
+          <h4>เกี่ยวกับผู้พัฒนา</h4>
+          <div class="m-body">
+            หัวข้อการค้นคว้าอิสระเชิงวิจัย คือ การคาดการณ์ปริมาณความเข้มข้นของก๊าซคาร์บอนมอนอกไซด์ (CO)
+            และไนโตรเจนไดออกไซด์ (NO₂)
+            ในพื้นที่เมืองเชียงใหม่จาก Sentinel-5P ด้วยแบบจำลอง Long Short-Term Memory (LSTM)
+          </div>
+          <div class="m-link" style="margin-top:8px;">เว็บไซต์ภาควิชา:
+            <a href="https://geo.soc.cmu.ac.th/" target="_blank" rel="noopener">https://geo.soc.cmu.ac.th/</a>
+          </div>
+          <div class="m-section" style="margin-top:14px;">
+          </div>
+          <div class="m-section" style="margin-top:12px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+</body>
+<script>
+  // About Modal
+  const aboutBtn = document.getElementById('aboutBtn');
+  const aboutModal = document.getElementById('aboutModal');
+  const aboutClose = document.getElementById('aboutClose');
+  aboutBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    aboutModal.style.display = 'block';
+    aboutModal.setAttribute('aria-hidden', 'false');
+  });
+  aboutClose.addEventListener('click', function () {
+    aboutModal.style.display = 'none';
+    aboutModal.setAttribute('aria-hidden', 'true');
+  });
+</script>
+
+</html>

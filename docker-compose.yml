@@ -1,10 +1,22 @@
 services:
+  posgis:
+    image: postgis/postgis:latest
+    container_name: snn-postgis
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "6507:5432"
+    volumes:
+      - ./postgis:/docker-entrypoint-initdb.d
   nodejs:
     image: node:latest
     container_name: snn-nodejs
     working_dir: /app
+    depends_on:
+      - posgis
     ports:
       - "6506:3000"
     volumes:
       - ./nodejs:/app
-    command: /bin/bash -c "npm install && npm i -g nodemon && nodemon app.js"
+    command: /bin/bash -c "npm install && npm i -g nodemon && nodemon"
