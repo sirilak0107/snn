@@ -80,9 +80,9 @@ async function loadZoneData(dateStr) {
     try {
 
         const [urbanRes, suburbanRes, ruralRes] = await Promise.all([
-            fetch(`/api/no2_urban/${dateStr}`),
-            fetch(`/api/no2_suburban/${dateStr}`),
-            fetch(`/api/no2_rural/${dateStr}`)
+            fetch(`/snn/api/no2_urban/${dateStr}`),
+            fetch(`/snn/api/no2_suburban/${dateStr}`),
+            fetch(`/snn/api/no2_rural/${dateStr}`)
         ]);
         const [urbanData, suburbanData, ruralData] = await Promise.all([
             urbanRes.json(),

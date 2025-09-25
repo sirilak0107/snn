@@ -82,9 +82,9 @@ async function loadZoneData(dateStr) {
     try {
         // โหลดข้อมูลจาก API (JSON array ของ {gid, zone, date, co})
         const [urbanRes, suburbanRes, ruralRes] = await Promise.all([
-            fetch(`/api/co_7day_forecast_urban/${dateStr}`),
-            fetch(`/api/co_7day_forecast_suburban/${dateStr}`),
-            fetch(`/api/co_7day_forecast_rural/${dateStr}`)
+            fetch(`/snn/api/co_7day_forecast_urban/${dateStr}`),
+            fetch(`/snn/api/co_7day_forecast_suburban/${dateStr}`),
+            fetch(`/snn/api/co_7day_forecast_rural/${dateStr}`)
         ]);
         const [urbanData, suburbanData, ruralData] = await Promise.all([
             urbanRes.json(),
