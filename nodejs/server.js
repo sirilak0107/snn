@@ -16,7 +16,7 @@ const port = 3000;
 
 
 // get data from join query
-app.get('/api/co_urban/:date', async (req, res) => {
+app.get('/snn/api/co_urban/:date', async (req, res) => {
   try {
     const { date } = req.params;
     const sql = `SELECT a.id, ST_AsGeoJSON(geom) as geom, b.co
@@ -36,7 +36,7 @@ app.get('/api/co_urban/:date', async (req, res) => {
 });
 
 // get data from join query
-app.get('/api/co_suburban/:date', async (req, res) => {
+app.get('/snn/api/co_suburban/:date', async (req, res) => {
   try {
     const { date } = req.params;
 
@@ -57,7 +57,7 @@ app.get('/api/co_suburban/:date', async (req, res) => {
 });
 
 // get data from join query
-app.get('/api/co_rural/:date', async (req, res) => {
+app.get('/snn/api/co_rural/:date', async (req, res) => {
   try {
     const { date } = req.params;
 
@@ -81,7 +81,7 @@ app.get('/api/co_rural/:date', async (req, res) => {
 
 
 // get data from join query
-app.get('/api/no2_urban/:date', async (req, res) => {
+app.get('/snn/api/no2_urban/:date', async (req, res) => {
   try {
     const { date } = req.params;
 
@@ -104,7 +104,7 @@ app.get('/api/no2_urban/:date', async (req, res) => {
 
 
 // get data from join query
-app.get('/api/no2_suburban/:date', async (req, res) => {
+app.get('/snn/api/no2_suburban/:date', async (req, res) => {
   try {
     const { date } = req.params;
 
@@ -126,7 +126,7 @@ app.get('/api/no2_suburban/:date', async (req, res) => {
 
 
 // get data from join query
-app.get('/api/no2_rural/:date', async (req, res) => {
+app.get('/snn/api/no2_rural/:date', async (req, res) => {
   try {
     const { date } = req.params;
 
@@ -150,7 +150,7 @@ app.get('/api/no2_rural/:date', async (req, res) => {
 
 
 // get data from join query forecast co urban
-app.get('/api/co_7day_forecast_urban/:date', async (req, res) => {
+app.get('/snn/api/co_7day_forecast_urban/:date', async (req, res) => {
   try {
     const { date } = req.params;
 
@@ -173,7 +173,7 @@ app.get('/api/co_7day_forecast_urban/:date', async (req, res) => {
 });
 
 // get data from join query forecast co suburban
-app.get('/api/co_7day_forecast_suburban/:date', async (req, res) => {
+app.get('/snn/api/co_7day_forecast_suburban/:date', async (req, res) => {
   try {
     const { date } = req.params;
     const sql = `SELECT a.id, dt, ST_AsGeoJSON(geom) as geom, b.co
@@ -191,7 +191,7 @@ app.get('/api/co_7day_forecast_suburban/:date', async (req, res) => {
 });
 
 // // get data from join query forecast co rural
-app.get('/api/co_7day_forecast_rural/:date', async (req, res) => {
+app.get('/snn/api/co_7day_forecast_rural/:date', async (req, res) => {
   try {
     const { date } = req.params;
     const sql = `SELECT a.id, dt, ST_AsGeoJSON(geom) as geom, b.co
@@ -209,7 +209,7 @@ app.get('/api/co_7day_forecast_rural/:date', async (req, res) => {
 });
 
 /// get data from join query forecast no2 urban
-app.get('/api/no2_7day_forecast_urban/:date', async (req, res) => {
+app.get('/snn/api/no2_7day_forecast_urban/:date', async (req, res) => {
   try {
     const { date } = req.params;
 
@@ -230,7 +230,7 @@ app.get('/api/no2_7day_forecast_urban/:date', async (req, res) => {
 });
 
 /// get data from join query forecast no2 suburban
-app.get('/api/no2_7day_forecast_suburban/:date', async (req, res) => {
+app.get('/snn/api/no2_7day_forecast_suburban/:date', async (req, res) => {
   try {
     const { date } = req.params;
 
@@ -251,7 +251,7 @@ app.get('/api/no2_7day_forecast_suburban/:date', async (req, res) => {
 });
 
 /// get data from join query forecast no2 rural
-app.get('/api/no2_7day_forecast_rural/:date', async (req, res) => {
+app.get('/snn/api/no2_7day_forecast_rural/:date', async (req, res) => {
   try {
     const { date } = req.params;
 
